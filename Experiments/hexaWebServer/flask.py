@@ -10,7 +10,7 @@ def main():
     script_name = request.json['ADCquery.py']
 
     # Run the script and get the output
-    result = subprocess.check_output(['python', ADCquery.py])
+    result = subprocess.check_output(['python', script_name])
 
     # Convert the output to JSON
     output = json.loads(result)
