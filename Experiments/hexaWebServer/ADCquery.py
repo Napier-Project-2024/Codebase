@@ -16,7 +16,7 @@ except ImportError:
         raise ImportError(
             "Failed to import library from parent folder")
 
-adc0 = ADCPi(0x68, 0x69, 12)   
+adc0 = ADCPi(0x68, 0x69, 18)   
 
 baseVoltage = adc0.read_voltage(1) # Pin 1 on adc0 is used to capture the boards base voltage   
     
