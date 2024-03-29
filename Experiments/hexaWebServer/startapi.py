@@ -2,6 +2,7 @@
 
 
 from flask import Flask, render_template
+from ADCquery import main
 import datetime
 
 app = Flask(__name__)
@@ -19,7 +20,7 @@ def index():
 
 @app.route('/returnVals')
 def returnVals():
-    from ADCquery import main
+    
     data = main()
     return data
 
