@@ -4,8 +4,8 @@ import json
 
 app = flask.Flask(__name__)
 
-@app.route('/run_script', methods=['POST'])
-def run_script():
+@app.route('/returnVals', methods=['POST'])
+def returnVals():
     # Get the script name from the POST data
     script = flask.request.json['ADCquery.py']
 
