@@ -1,20 +1,22 @@
-from flask import Flask, render_template
-import sys
+import flask
 import subprocess
-app = Flask(__name__)
+import json
 
-@app.route("/")
+app = flask.Flask(__name__)
 
+@app.route('/run_script', methods=['POST'])
+def run_script():
+    # Get the script name from the POST data
+    script_name = flask.request.json['ADCquery']
 
-def index():
-    def time():
-        now = subprocess.check_output(['python','example.py'])
-        return now
-    templateData = {
-        'title' : 'HELLO!',
-        'time'  : time()
-        }
-    return render_template('index.html', **templateData)
+    # Run the script and get the output
+    result = subprocess.check_output(['python', script_name])
 
-if __name__ == "__main__":
-   app.run(host='0.0.0.0', port=80, debug=True)
+    # Convert the output to JSON
+    output = json.loads(result)
+
+    # Return the output as JSON
+    return flask.jsonify(output)
+
+if __name__ == '__main__':
+    app.run(debug=True)
