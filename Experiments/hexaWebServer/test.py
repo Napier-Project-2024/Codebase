@@ -15,7 +15,7 @@ except ImportError:
         raise ImportError(
             "Failed to import library from parent folder")
 
-app = flask.Flask()
+app = flask.Flask(__name__)
 
 @app.route('/')
 def index():
