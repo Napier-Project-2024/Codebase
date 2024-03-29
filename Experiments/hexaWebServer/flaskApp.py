@@ -7,7 +7,7 @@ app = flask.Flask(__name__)
 @app.route('/run_script', methods=['POST'])
 def run_script():
     # Get the script name from the POST data
-    script_name = flask.request.json['ADCquery']
+    script_name = flask.request.json['ADCquery.py']
 
     # Run the script and get the output
     result = subprocess.check_output(['python', script_name])
