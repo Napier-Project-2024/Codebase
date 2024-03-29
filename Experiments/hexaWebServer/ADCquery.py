@@ -23,6 +23,6 @@ def main():
     print("Channel 3: %02f" % adc.read_voltage(3))
     print("Channel 4: %02f" % adc.read_voltage(4))
     print("Channel 5: %02f" % adc.read_voltage(5))
-    print("Channel 6: %02f" % adc.read_voltage(6)
+    print("Channel 6: %02f" % adc.read_voltage(6))
     print("Channel 7: %02f" % adc.read_voltage(7))
     print("Channel 8: %02f" % adc.read_voltage(8))
