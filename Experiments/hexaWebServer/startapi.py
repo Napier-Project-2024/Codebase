@@ -9,11 +9,11 @@ app = Flask(__name__)
 
 # web interface
 
-@app.route("/")
+# @app.route("/")
 
-def index():
+# def index():
 
-    return render_template('index.html')
+#     return render_template('index.html')
 
 
 # API returns a JSON
