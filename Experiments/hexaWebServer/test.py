@@ -8,7 +8,7 @@ app = flask.Flask(__name__)
 def index():
     def inner():
         proc = subprocess.Popen(
-            ['python3 example.py'],  # Call any function
+            ['python3 /home/team-member/ABElectronics_Python_Libraries/ADCPi/demos/demo_readvoltage.py'],  # Call any function
             shell=True,
             stdout=subprocess.PIPE,
             universal_newlines=True
