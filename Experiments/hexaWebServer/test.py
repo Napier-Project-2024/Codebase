@@ -15,9 +15,9 @@ def index():
              universal_newlines=True
          )
 
-             #for line in iter(proc.stdout.readline,''):
+             for line in iter(proc.stdout.readline,''):
                 # time.sleep(0.01)  # Add control to output
-             #yield line.rstrip() + '<br/>\n'
+                yield line.rstrip()
 
 
     return flask.Response(inner(), mimetype='text/html')  # text/html is required for most browsers to show th$
