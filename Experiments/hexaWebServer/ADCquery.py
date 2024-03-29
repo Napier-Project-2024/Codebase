@@ -38,16 +38,23 @@ def main():
     adc = ADCPi(0x68, 0x69, 12)
     
     values = {
-        1 : 1/adc.read_voltage(1),
-        2 : 1/adc.read_voltage(2),
-        3 : 1/adc.read_voltage(3),
-        4 : 1/adc.read_voltage(4),
-        5 : 1/adc.read_voltage(5),
-        6 : 1/adc.read_voltage(6),
-        7 : 1/adc.read_voltage(7),
-        8 : 1/adc.read_voltage(8)         
+        1 : convert(adc.read_voltage(8), adc.read_voltage(1)),
+        2 : convert(adc.read_voltage(8), adc.read_voltage(2)),
+        3 : convert(adc.read_voltage(8), adc.read_voltage(3)),
+        4 : convert(adc.read_voltage(8), adc.read_voltage(4)),
+        5 : convert(adc.read_voltage(8), adc.read_voltage(5)),
+        6 : convert(adc.read_voltage(8), adc.read_voltage(6)),
+        7 : convert(adc.read_voltage(8), adc.read_voltage(7)),       
     }
     
     return json.dumps(values)
+
+
+def convert(base, input):   
+    try:
+        output = input/base
+    except:
+        output = 0   
+    return output    
 
 main()
