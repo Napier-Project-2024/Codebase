@@ -35,16 +35,17 @@ except ImportError:
     
 def main():
     
-    adc = ADCPi(0x68, 0x69, 12)
+    adc0 = ADCPi(0x68, 0x69, 12)
+    baseVoltage = adc0.read_voltage(1) # Pin 1 on adc0 is used to capture the boards base voltage
     
     values = {
-        1 : convert(adc.read_voltage(8), adc.read_voltage(1)),
-        2 : convert(adc.read_voltage(8), adc.read_voltage(2)),
-        3 : convert(adc.read_voltage(8), adc.read_voltage(3)),
-        4 : convert(adc.read_voltage(8), adc.read_voltage(4)),
-        5 : convert(adc.read_voltage(8), adc.read_voltage(5)),
-        6 : convert(adc.read_voltage(8), adc.read_voltage(6)),
-        7 : convert(adc.read_voltage(8), adc.read_voltage(7)),       
+        1 : convert(baseVoltage, adc0.read_voltage(2)),
+        2 : convert(baseVoltage, adc0.read_voltage(3)),
+        3 : convert(baseVoltage, adc0.read_voltage(4)),
+        4 : convert(baseVoltage, adc0.read_voltage(5)),
+        5 : convert(baseVoltage, adc0.read_voltage(6)),
+        6 : convert(baseVoltage, adc0.read_voltage(7)),
+        7 : convert(baseVoltage, adc0.read_voltage(8))       
     }
     
     return json.dumps(values)
