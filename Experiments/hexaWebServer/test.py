@@ -15,7 +15,7 @@ except ImportError:
         raise ImportError(
             "Failed to import library from parent folder")
 
-app = flask.Flask(HEXA Proprioception)
+app = flask.Flask()
 
 @app.route('/')
 def index():
