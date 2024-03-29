@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Values</title>
+    <title>Display Values</title>    
+</head>
+
+<body>
+    <div id="values-container">
+        <!-- Values will be displayed here -->
+    </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Initial fetch and display
             fetchDataAndDisplayValues();
         
-            // Fetch and display values every 0.01 seconds
-            setInterval(fetchDataAndDisplayValues, 30); // 30 milliseconds = 0.03 seconds
+            // Fetch and display values every 1 second
+            setInterval(fetchDataAndDisplayValues, 1000); // 1000 milliseconds = 1 second
         });
         
         function fetchDataAndDisplayValues() {
@@ -28,8 +34,9 @@
         }
         
         function displayValues(data) {
+            // Clear previous values
             const container = document.getElementById('values-container');
-            container.innerHTML = ''; // Clear previous values
+            container.innerHTML = '';
         
             // Iterate through the values and create elements to display them
             for (const key in data) {
@@ -40,17 +47,8 @@
                     container.appendChild(valueElement);
                 }
             }
-        }        
+        }
+        
     </script>
-
-    
-</head>
-
-<body>
-    <div id="values-container">
-        <!-- Values will be displayed here -->
-    </div>
-
-    
 </body>
 </html>
