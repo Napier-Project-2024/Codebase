@@ -17,11 +17,10 @@ except ImportError:
 
 adc0 = ADCPi(0x68, 0x69, 12)   
 
-   
+baseVoltage = adc0.read_voltage(1) # Pin 1 on adc0 is used to capture the boards base voltage
     
 def main():
-    
-    baseVoltage = adc0.read_voltage(1) # Pin 1 on adc0 is used to capture the boards base voltage
+       
     
     values = {
         1 : convert(baseVoltage, adc0.read_voltage(2)),
