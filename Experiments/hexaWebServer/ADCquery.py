@@ -26,3 +26,5 @@ def main():
     print("Channel 6: %02f" % adc.read_voltage(6))
     print("Channel 7: %02f" % adc.read_voltage(7))
     print("Channel 8: %02f" % adc.read_voltage(8))
+
+main()
