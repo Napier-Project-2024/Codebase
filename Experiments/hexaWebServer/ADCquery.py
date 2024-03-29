@@ -2,6 +2,7 @@
 
 import json
 
+
 try:
     from ADCPi import ADCPi
 except ImportError:
@@ -17,10 +18,9 @@ except ImportError:
 
 adc0 = ADCPi(0x68, 0x69, 12)   
 
-baseVoltage = adc0.read_voltage(1) # Pin 1 on adc0 is used to capture the boards base voltage
+baseVoltage = adc0.read_voltage(1) # Pin 1 on adc0 is used to capture the boards base voltage   
     
 def main():
-       
     
     values = {
         1 : convert(baseVoltage, adc0.read_voltage(2)),
@@ -31,7 +31,7 @@ def main():
         6 : convert(baseVoltage, adc0.read_voltage(7)),
         7 : convert(baseVoltage, adc0.read_voltage(8))       
     }
-    
+        
     return json.dumps(values)
 
 
