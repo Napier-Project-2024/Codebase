@@ -8,6 +8,14 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Initial fetch and display
+            fetchDataAndDisplayValues();
+        
+            // Fetch and display values every 0.01 seconds
+            setInterval(fetchDataAndDisplayValues, 10); // 10 milliseconds = 0.01 seconds
+        });
+        
+        function fetchDataAndDisplayValues() {
             // Fetch data from the API
             fetch('http://192.168.1.224:5000/returnVals')
             .then(response => response.json())
@@ -18,10 +26,11 @@
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
-        });
+        }
         
         function displayValues(data) {
             const container = document.getElementById('values-container');
+            container.innerHTML = ''; // Clear previous values
         
             // Iterate through the values and create elements to display them
             for (const key in data) {
@@ -33,6 +42,7 @@
                 }
             }
         }
+        
     </script>
 </head>
 <body>
