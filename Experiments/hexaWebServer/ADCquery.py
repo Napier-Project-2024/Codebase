@@ -42,7 +42,7 @@ def main():
         4 : adc.read_voltage(4)        
     }
     
-    return json.dumps(values)
+    print(str(json.dumps(values)))
 
 
 main()
