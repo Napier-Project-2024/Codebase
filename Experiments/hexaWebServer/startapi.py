@@ -14,6 +14,7 @@ def index():
 
     return render_template('index.html')
 
+
 # API returns a JSON
 
 @app.route('/returnVals')
@@ -21,8 +22,6 @@ def returnVals():
     from ADCquery import main
     data = main()
     return data
-
-
 
 
 if __name__ == '__main__':
