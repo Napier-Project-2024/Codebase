@@ -2,7 +2,7 @@ import flask
 import subprocess
 import json
 
-app = flask(__name__)
+app = flask.Flask(__name__)
 
 @app.route('/main', methods=['POST'])
 def main():
