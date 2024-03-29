@@ -1,4 +1,4 @@
-#!/bin/env/usr python
+#!/usr/bin/env python
 
 
 from flask import Flask, jsonify
