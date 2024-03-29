@@ -39,10 +39,13 @@ def main():
         1 : adc.read_voltage(1),
         2 : adc.read_voltage(2),
         3 : adc.read_voltage(3),
-        4 : adc.read_voltage(4)        
+        4 : adc.read_voltage(4),
+        5 : adc.read_voltage(5),
+        6 : adc.read_voltage(6),
+        7 : adc.read_voltage(7),
+        8 : adc.read_voltage(8)         
     }
     
-    print(str(json.dumps(values)))
-
+    return json.dumps(values)
 
 main()
