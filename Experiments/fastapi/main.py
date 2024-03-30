@@ -51,6 +51,6 @@ async def returnValues():
         7 : adc0.read_voltage(8)/baseVoltage  
     }
     
-        return json.dumps(values)
+        return values
     
 
