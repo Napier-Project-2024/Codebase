@@ -1,4 +1,4 @@
-from fastapi import FastAPI, uvicorn 
+from fastapi import FastAPI
 from starlette.responses import FileResponse 
 import datetime
 
