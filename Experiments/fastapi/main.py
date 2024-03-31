@@ -40,17 +40,28 @@ async def test():
 @app.get("/returnValues")
 async def returnValues():
         baseVoltage = adc0.read_voltage(1) # Pin 1 on adc0 is used to capture the boards base voltage   
-
-        values = {
-        1 : adc0.read_voltage(2)/baseVoltage,
-        2 : adc0.read_voltage(3)/baseVoltage,
-        3 : adc0.read_voltage(4)/baseVoltage,
-        4 : adc0.read_voltage(5)/baseVoltage,
-        5 : adc0.read_voltage(6)/baseVoltage,
-        6 : adc0.read_voltage(7)/baseVoltage,
-        7 : adc0.read_voltage(8)/baseVoltage  
-    }
-    
-        return values
+        def createValues(baseVoltage):
+            values = {
+            "Base Voltage" : baseVoltage,
+            1 : convert(adc0.read_voltage(2), baseVoltage),
+            2 : convert(adc0.read_voltage(3), baseVoltage),
+            3 : convert(adc0.read_voltage(4), baseVoltage),
+            4 : convert(adc0.read_voltage(5), baseVoltage),
+            5 : convert(adc0.read_voltage(6), baseVoltage),
+            6 : convert(adc0.read_voltage(7), baseVoltage),
+            7 : convert(adc0.read_voltage(8), baseVoltage)  
+        }
+        
+            return values
+        
+        def convert(input, base):
+            try:
+                output = input/base
+            except:
+                output = 0
+            return output
+            
+        
+        return createValues(baseVoltage)
     
 
