@@ -42,7 +42,7 @@ async def returnValues():
         baseVoltage = adc0.read_voltage(1) # Pin 1 on adc0 is used to capture the boards base voltage   
         def createValues(baseVoltage):
             values = {
-            "Base Voltage" : baseVoltage,
+            0 : "Base Voltage = {baseVoltage}",
             1 : convert(adc0.read_voltage(2), baseVoltage),
             2 : convert(adc0.read_voltage(3), baseVoltage),
             3 : convert(adc0.read_voltage(4), baseVoltage),
