@@ -1,6 +1,8 @@
 # Hexasense API v0.1
 
-This repository contains the component parts of the prototype implementation of a proprioception system for the Vincross HEXA robot.<br>
+This repository contains the component parts of the prototype implementation of a proprioception system for the Vincross HEXA robot.
+<br>
+<br>
 This project is developed by Group Project Team 104 on behalf of the We Are Robots Lab at Edinburgh Napier University as part of the Group Project Module 2023-24.
 <br>
 <br>
