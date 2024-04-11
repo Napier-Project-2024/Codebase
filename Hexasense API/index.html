@@ -3,41 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display Values</title>    
+    <title>Display Values</title>
 </head>
 
 <body>
+    <div id="title">
+        Leg Joint Position Values
+    </div>
     <div id="values-container">
         <!-- Values will be displayed here -->
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             // Initial fetch and display
             fetchDataAndDisplayValues();
-        
+
             // Fetch and display values
             setInterval(fetchDataAndDisplayValues, 30); // 30 milliseconds
         });
-        
+
         function fetchDataAndDisplayValues() {
             // Fetch data from the API
-            fetch('http://hefman.ddns.net:5000/returnValues')
-            .then(response => response.json())
-            .then(data => {
-                // Display the values
-                displayValues(data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
+            fetch('/returnValues')
+                .then(response => response.json())
+                .then(data => {
+                    // Display the values
+                    displayValues(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
         }
-        
+
         function displayValues(data) {
             // Clear previous values
             const container = document.getElementById('values-container');
             container.innerHTML = '';
-        
+
             // Iterate through the values and create elements to display them
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
@@ -48,7 +51,7 @@
                 }
             }
         }
-        
+
     </script>
 </body>
 </html>
