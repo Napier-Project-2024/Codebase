@@ -1,5 +1,4 @@
 # Hexasense API v0.1 - Hardware Implementation
-<br>
 
 ## Design Intent
 
@@ -12,7 +11,6 @@ It is also intended that the SBC component part of this system should function a
 directly with the HEXA robot itself, negating the need for the additional SBC hardware.
 <br>
 
-<br>
 
 ## Hardware Description
 
@@ -25,7 +23,6 @@ The hardware implementation to add a proprioceptive sensing system to the HEXA R
 These three component parts function together to deliver the desired actuator positional data required by the project.
 <br>
 
-<br>
 
 ## Schematic Diagram of Electronic Components
 
@@ -38,7 +35,6 @@ As this system uses off-the-shelf products as part of the complete integration, 
 (insert description and links to off the shelf parts here)
 <br>
 
-<br>
 
 ## Structural Hardware Assembly
 
