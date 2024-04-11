@@ -8,7 +8,8 @@
 
 <body>
     <div id="title">
-        Leg Joint Position Values
+        <b>Actuator Position Values</b>
+        <p></p>
     </div>
     <div id="values-container">
         <!-- Values will be displayed here -->
@@ -20,22 +21,25 @@
             fetchDataAndDisplayValues();
 
             // Fetch and display values
-            setInterval(fetchDataAndDisplayValues, 30); // 30 milliseconds
+            setInterval(fetchDataAndDisplayValues, 30); // Set a 30 milliseconds interval for each API fetch
         });
 
         function fetchDataAndDisplayValues() {
             // Fetch data from the API
             fetch('/returnValues')
+                // Read the response into a json
                 .then(response => response.json())
                 .then(data => {
                     // Display the values
                     displayValues(data);
                 })
+                // Log any API response errors
                 .catch(error => {
                     console.error('Error fetching data:', error);
                 });
         }
 
+        // Define a function to display the values retrieved from the API
         function displayValues(data) {
             // Clear previous values
             const container = document.getElementById('values-container');
@@ -43,10 +47,27 @@
 
             // Iterate through the values and create elements to display them
             for (const key in data) {
+
+                // If there is a key for the data
                 if (data.hasOwnProperty(key)) {
+
+                    // Extract the data
                     const value = data[key];
+
+                    // Create a DIV element for the value to reside in
                     const valueElement = document.createElement('div');
-                    valueElement.textContent = `${key}: ${value}`;
+                    
+                    // If the key value is 0 then display this as the supply voltage
+                    if (key == "0") {
+                        valueElement.textContent = `Supply Voltage: ${value} Volts`;
+                    }
+
+                    // Otherwise diplay the actuator scaled value
+                    else {
+                        valueElement.textContent = `Actuaor # ${key}: ${value}`;
+                    }
+
+                    // Append the DIV element to the container DIV
                     container.appendChild(valueElement);
                 }
             }
