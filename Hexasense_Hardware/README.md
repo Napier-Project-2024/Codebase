@@ -39,3 +39,4 @@ As this system uses off-the-shelf products as part of the complete integration, 
 ## Structural Hardware Assembly
 
 
+NOTE ABOUT HEADMOUNT SOURCE!
