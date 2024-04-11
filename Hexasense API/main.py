@@ -64,4 +64,3 @@ async def returnValues():
         
         return createValues(baseVoltage)
     
-
