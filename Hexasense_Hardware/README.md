@@ -80,10 +80,23 @@ The above schematic shows the potentiometer connections required to implement pr
 
 In order to correctly scale the readings from each connected potentiometer to a value between 0 and 1, we must be able to measure the maximum possible voltage that can be returned from a potentiometer to perform the scaling calculation. This is achieved by dedicating and ADC input solely to measuring the supply voltage of the system. Our software API implementation uses ADC input 1 to achieve this, thus it is imperitive that ADC input 1 be connected to the same 5v supply voltage to which the potentiometers are connected. This circuit design also accounts for situations where the supply voltage may fluctuate such that because the supply voltage is known, the scaling calculation will always return an accurate rotational position for each potentiometer within the operating voltage range of the ADC devices.
 
-The potentiometers function as in-circuit variable voltage dividers. With the CCW pin tied to Ground and the CW pin tied to the supply voltage as shown, the voltage measured at the W pin of the potentiometer can be taken as a percentage value of the supply voltage. As the potentiometers selected have a linear taper type, a 50% rotational position of the potentiometer will always result in a measurement of 50% of the supply voltage at the potentiometer's W pin. Similarly due to a linear potentiometer taper type, a 5% rotational position of the potentiometer would also measure as 5% of the supply voltage at the W pin in this configuration. Given a perfectly linear potentiometer taper, this should result in accurate rotational position measurement of the potentiometer as a percentage of the total angular range of the potentiometer - in this case a percentage of 270 degrees of rotation.
+The potentiometers function as in-circuit variable voltage dividers. With their CCW pins tied to Ground and their CW pins tied to the supply voltage as shown, the voltage measured at the W pin of the potentiometer can be taken as a percentage value of the supply voltage. As the potentiometers selected have a linear taper type, a 50% rotational position of the potentiometer will always result in a measurement of 50% of the supply voltage at the potentiometer's W pin. Similarly due to a linear potentiometer taper type, a 5% rotational position of the potentiometer would also measure as 5% of the supply voltage at the W pin in this configuration. Given a perfectly linear potentiometer taper, this should result in accurate rotational position measurement of the potentiometer as a percentage of the total angular range of the potentiometer - in this case a percentage of 270 degrees of rotation.
 
 
 ## Mechanical Hardware Assembly
 
+### HEXA Hip Replacement
+
+![Replacement Hip Model](./images/fusion-screenshots/Hexa_Hip_V6.png)
+
+![Hip Potentiometer Coupling Insert](./images/fusion-screenshots/Hexa_Insert_V1.png)
+
+### HEXA Mid Leg Replacement & Potentiometer Coupling Gears
+
+![Mid Leg Assembly](./images/fusion-screenshots/Hexa_Midleg_V4.png)
+
+### SBC & ADC Mounting Solution
+
+![SBC & ADC Mounting Solution](./images/fusion-screenshots/Hexa_Pi4B_Headmount_V3.png)
 
 NOTE ABOUT HEADMOUNT MODEL SOURCE!
