@@ -29,8 +29,8 @@ For detailed documentation of the Raspberry Pi 4B, please see the [Raspberry Pi 
 
 ### ADC Pi - Measurement System
 
-The ADC Pi board is comprised of two MCP3424 ADC ICs and an bi-directional I2C Logic Level converter which converts the Raspberry Pi's 5 volt logic level to
-a 3.3 volt logic level suitbale for the MCP3424 ADCs. The ADCs can be queried by the Rapserry Pi over the I2C buss and will return the voltage value present
+The ADC Pi board is comprised of two MCP3424 ADC ICs and an bi-directional I2C Logic Level converter circuit which converts the Raspberry Pi's 3.3 volt logic level to
+a 5 volt logic level suitbale for the MCP3424 ADCs. The ADCs can be queried by the Rapserry Pi over the I2C buss and will return the voltage value present
 at each of it's sense pins.
 
 For detailed documentation of the ADC Pi add-on board, please see the [AB Electronics](https://www.abelectronics.co.uk/) website for the [ADC Pi product.](https://www.abelectronics.co.uk/p/69/adc-pi)
@@ -47,10 +47,18 @@ For detailed documentation of the TT Electronics P090L-01F15BR10K potentiometers
 
 ## Schematic Diagram of Electronic Components
 
-This section describes the electronic connections between the component parts of the system only. For detailed schematic diagrams of the individual component parts of the system, please see the manufacturer's
-documentation and datasheets as directed below.
+This section describes the electronic connections between the component parts of the system only. 
+For detailed schematic diagrams of the individual component parts of the system, please see the individual manufacturer's documentation and datasheets as directed above.
 
-(insert system schematic here)
+### Connecting the Raspberry Pi to the ADC Pi
+
+![Connecting the Raspberry Pi to the ADC Pi](./images/schematics/connect-adc-to-pi.png)
+
+The above schematic shows the connections required between the Raspberry Pi SBD and the ADC Pi add-on board for correct operation. 
+
+Although both devices have 40-pin connectors, this is merely for the convenience of direct physical connection during development. In use, only five pin connections are required for correct interoperation of the devices.
+The ADC Pi requires both 5v and 3.3v, as well as Ground connections to power the ADC ICs and the 3.3v to 5v logic level converters (as illustrated in the ADC Pi's board schematic). 
+Data connection between the two devices is achieved using the I2C0 bus of the Raspberry Pi using the I2C0_SDA (pin 3) and I2C0_SDL (pin 5) connections.
 
 (insert description of system schematic here)
 
