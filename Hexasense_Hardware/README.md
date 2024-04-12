@@ -66,7 +66,7 @@ Data connection between the two devices is achieved using the I2C0 bus of the Ra
 
 ![Choosing I2C Bus Addresses](./images/schematics/set-adc-i2c-address.png)
 
-The above schematic shows the default I2C bus address setting selection for the ADC Pi.
+The above schematic shows the default I2C bus address selection setting for the ADC Pi.
 
 I2C bus addressing of the two MCP3424 ICs is achieved using the "U1" and "U2" physical jumpers on the ADC Pi add-on board. This addressing system allows for a maximum of 8 possible individual chip addresses on the same I2C bus for these devices, allowing for a maximum of 4 ADC Pi add-on boards to be used simultaneously on the same I2C bus.
 This would allow for a total of 32 ADC inputs to be addressed, which surpasses the required 19 inputs to implement proprioceptive sensing of all the leg actuators on the HEXA robot (3 actuaors per leg * 6 legs + input voltage reference measurement).
@@ -78,12 +78,17 @@ As our prototype only implements proprioception of a single leg currently, only 
 
 The above schematic shows the potentiometer connections required to implement proprioceptive sensing of three actuators on the HEXA robot.
 
-In order to correctly scale the readings from each connected potentiometer to a value between 0 and 1, we must be able to measure the maximum possible voltage that can be returned from a potentiometer to perform the scaling calculation. This is achieved by dedicating and ADC input solely to measuring the supply voltage of the system. Our software API implementation uses ADC input 1 to achieve this, thus it is imperitive that ADC input 1 be connected to the same 5v supply voltage to which the potentiometers are connected. This circuit design also accounts for situations where the supply voltage may fluctuate such that because the supply voltage is known, the scaling calculation will always return an accurate rotational position for each potentiometer within the operating voltage range of the ADC devices.
+In order to correctly scale the readings from each connected potentiometer to a floating point number between 0 and 1, we must be able to measure the maximum possible voltage that can be returned from a potentiometer to perform the scaling calculation. This is achieved by dedicating and ADC input solely to measuring the supply voltage of the system. Our software API implementation uses ADC input 1 to achieve this, thus it is imperitive that ADC input 1 be connected to the same 5v supply voltage to which the potentiometers are connected. This circuit design also accounts for situations where the supply voltage may fluctuate such that because the supply voltage is known, the scaling calculation will always return an accurate rotational position for each potentiometer within the operating voltage range of the ADC devices.
 
 The potentiometers function as in-circuit variable voltage dividers. With their CCW pins tied to Ground and their CW pins tied to the supply voltage as shown, the voltage measured at the W pin of the potentiometer can be taken as a percentage value of the supply voltage. As the potentiometers selected have a linear taper type, a 50% rotational position of the potentiometer will always result in a measurement of 50% of the supply voltage at the potentiometer's W pin. Similarly due to a linear potentiometer taper type, a 5% rotational position of the potentiometer would also measure as 5% of the supply voltage at the W pin in this configuration. Given a perfectly linear potentiometer taper, this should result in accurate rotational position measurement of the potentiometer as a percentage of the total angular range of the potentiometer - in this case a percentage of 270 degrees of rotation.
 
 
 ## Mechanical Hardware Assembly
+
+To allow for the addition of our proprioception system to the HEXA robot in a non-destructive and reversible manner, the design and manufacture of some mechanical components was required.
+These components were designed using Autodesk's Fusion CAD software, and manufactured using FDM 3D Printing with a Creality Ender 3 V3 KE 3D printer.
+Each of the mechanicals parts required some design iteration and repeated protoype manufacturing to achieve the correct fitment and functionality due to the mehcanical precision required and a lack of experience among the team members in using these tools and techniques.
+Some of the design choices made during this process were made simply to prevent interference of mechanical parts of the robbot during operation, specifically the choice to directly couple the hip actuator to the potentiometer, where the mid-leg assembly instead uses gearing to couple the potentiometers instead.
 
 ### HEXA Hip Replacement
 
