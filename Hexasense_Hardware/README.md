@@ -60,7 +60,25 @@ Although both devices have 40-pin connectors, this is merely for the convenience
 The ADC Pi requires both 5v and 3.3v, as well as Ground connections to power the ADC ICs and the 3.3v to 5v logic level converters (as illustrated in the ADC Pi's board schematic). 
 Data connection between the two devices is achieved using the I2C0 bus of the Raspberry Pi using the I2C0_SDA (pin 3) and I2C0_SDL (pin 5) connections.
 
-(insert description of system schematic here)
+### ADC Pi I2C Bus Address Setting
+
+![Choosing I2C Bus Addresses](./images/schematics/set-adc-i2c-address.png)
+
+The above schematic shows the default I2C bus address setting selection for the ADC Pi.
+
+I2C bus addressing of the two MCP3424 ICs is achieved using the "U1" and "U2" physical jumpers on the ADC Pi add-on board. This addressing system allows for a maximum of 8 possible individual chip addresses on the same I2C bus for these devices, allowing for a maximum of 4 ADC Pi add-on boards to be used simultaneously on the same I2C bus.
+This would allow for a total of 32 ADC inputs to be addressed, which surpasses the required 19 inputs to implement proprioceptive sensing of all the leg actuators on the HEXA robot (3 actuaors per leg * 6 legs + input voltage reference measurement).
+As our prototype only implements proprioception of a single leg currently, only 4 of the available ADC inputs are required for correct operation of the prototype system.
+
+### Connecting the Potentiometers to the ADC Pi
+
+![Connecting Potentiometers to the ADC Pi](./images/schematics/connect-adc-pots.png)
+
+The above schematic shows the potentiometer connections required to implement proprioceptive sensing of three actuators on the HEXA robot.
+
+In order to correctly scale the readings from each connected potentiometer to a value between 0 and 1, we must be able to measure the maximum possible voltage that can be returned from a potentiometer to perform the scaling calculation. This is achieved by dedicating and ADC input solely to measuring the supply voltage of the system. Our software API implementation uses ADC input 1 to achieve this, thus it is imperitive that ADC input 1 be connected to the same 5v supply voltage to which the potentiometers are connected. This circuit design also accounts for situations where the supply voltage may fluctuate such that because the supply voltage is known, the scaling calculation will always return an accurate rotational position for each potentiometer within the operating voltage range of the ADC devices.
+
+The potentiometers function as in-circuit variable voltage dividers. With the CCW pin tied to Ground and the CW pin tied to the supply voltage as shown, the voltage measured at the W pin of the potentiometer can be taken as a percentage value of the supply voltage. As the potentiometers selected have a linear taper type, a 50% rotational position of the potentiometer will always result in a measurement of 50% of the supply voltage at the potentiometer's W pin. Similarly due to a linear potentiometer taper type, a 5% rotational position of the potentiometer would also measure as 5% of the supply voltage at the W pin in this configuration. Given a perfectly linear potentiometer taper, this should result in accurate rotational position measurement of the potentiometer as a percentage of the total angular range of the potentiometer - in this case a percentage of 270 degrees of rotation.
 
 
 ## Mechanical Hardware Assembly
