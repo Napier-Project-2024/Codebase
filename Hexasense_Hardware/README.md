@@ -2,6 +2,8 @@
 
 This seems like it's going to be a dense document so, if you don't have one already, get yourself a coffee first.
 
+![Assembled Prototype](./images/assembled-solution.jpg)
+
 ## Design Intent
 
 The intention of this hardware design is to provide a means of sensing the position of the actuators of the HEXA robot whilst maintaining the ability to fully revert the robot to it's original factory state.<br>
