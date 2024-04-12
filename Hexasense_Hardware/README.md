@@ -7,7 +7,7 @@ This seems like it's going to be a dense document so, if you don't have one alre
 ## Design Intent
 
 The intention of this hardware design is to provide a means of sensing the position of the actuators of the HEXA robot whilst maintaining the ability to fully revert the robot to it's original factory state.<br>
-Any instance where modification of the robot's hardware would be required, an appropriate 3D printed part has been designed to integrate in place of the original robot hardware.<br>
+Any instance where modification of the robot's hardware would be required, an appropriate 3D printed part has been designed and manufactured to integrate in place of the original robot hardware.<br>
 It is also intended that the SBC component part of this system should function as an analogue for the HEXA robot to allow future integration of the Hexasense API software solution and ADC system directly with the HEXA robot itself, negating the need for the additional SBC hardware and potentially increasing the responsiveness of the API in use.<br>
 
 
@@ -104,4 +104,5 @@ Some of the design choices made during this process were made simply to prevent 
 
 ![SBC & ADC Mounting Solution](./images/fusion-screenshots/Hexa_Pi4B_Headmount_V3.png)
 
-NOTE ABOUT HEADMOUNT MODEL SOURCE!
+The mounting solution for the SBC and ADC add-on board is based on a design created and distributed by Thingiverse user "mkellsy" which can be [found here](https://www.thingiverse.com/thing:3793664). 
+This design was then adapted to allow easyy mounting of the proprioception system directly to the HEXA robot in place of the factory head shell. This conveniently also allows the use of the HEXA robot's onboard USB port to power the proprioception system.
