@@ -140,7 +140,7 @@ func callAPI() {
 		return
 	}
 
-	// Close the HTTP request body
+	// Close the HTTP response body
 	defer req.Body.Close()
 
 	// Read in the response
