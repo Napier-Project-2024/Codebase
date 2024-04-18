@@ -134,4 +134,5 @@ The total print time for a full set of the required parts using an Ender 3 V3 KE
 ![Full Print Orca Slicer](./images/orca-full-print.png)
 
 The above Orca Slicer project file can be found [here](./models/orca-full-print.3mf), alongside the individual STL files for each part [here](./models).
+The source project files from Autodesk Fusion can also be found [here](./fusion).
 It is recommended you adapt the support structures, quality settings, and part orientation to suit your specific printer, however the above can be used as a reference. 
