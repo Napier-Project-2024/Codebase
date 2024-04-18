@@ -85,24 +85,53 @@ The potentiometers function as in-circuit variable voltage dividers. With their 
 
 ## Mechanical Hardware Assembly
 
+![Full Assembly](./images/assembly-animation.gif)
+
+The above animation shows the assembly of a complete set of the required parts to implement proprioceptive sensing on a single leg of the HEXA robot.
+
 To allow for the addition of our proprioception system to the HEXA robot in a non-destructive and reversible manner, the design and manufacture of some mechanical components was required.
 These components were designed using Autodesk's Fusion CAD software, and manufactured using FDM 3D Printing with a Creality Ender 3 V3 KE 3D printer.
-Each of the mechanicals parts required some design iteration and repeated protoype manufacturing to achieve the correct fitment and functionality due to the mehcanical precision required and a lack of experience among the team members in using these tools and techniques.
-Some of the design choices made during this process were made simply to prevent interference of mechanical parts of the robbot during operation, specifically the choice to directly couple the hip actuator to the potentiometer, where the mid-leg assembly instead uses gearing to couple the potentiometers instead.
+Each of the mechanical parts required some design iteration and repeated protoype manufacturing to achieve the correct fit and functionality due to the mehcanical precision required and a lack of experience among the team members in using these tools and techniques.
+Some of the design choices made during this process were made simply to prevent interference of mechanical parts of the robot during operation, specifically the choice to directly couple the hip actuator to the potentiometer, where the mid-leg assembly instead uses gearing to couple the potentiometers to the actuators instead.
+The replacement assembly re-uses all of the stock robot's screws and fastenings.
 
 ### HEXA Hip Replacement
 
 ![Replacement Hip Model](./images/fusion-screenshots/Hexa_Hip_V6.png)
 
+The replacement part for the "hip" section of the HEXA's leg is a complicated geometry to reproduce successfully with a 3D printed part.
+The layer orientation of the printed part i an important consideration to ensure the stringth of the part in this case, particularly in the potentiometer mount where the retention clips for the potentiometer will easily snap if the part is not printed on it's side with the layer lines running lenghtwise through the retention clips.
+This orientation is depicted in the top left section of the above design image, where the layer lines would run horizontally through the re-oriented part.
+Printing this part will require supports.
+
 ![Hip Potentiometer Coupling Insert](./images/fusion-screenshots/Hexa_Insert_V1.png)
+
+The potentiometer mearuing the "hip" joint position is coupled axially through the rotational centre of the joint directly to a "key" in the body of the potentiometer located in the centre bore of the free-running bearing on the servo motor body using the very small insert part depicted above.
+This part is most successfully 3D printed upside-down when refrencing the above design image and will require printing supports.
 
 ### HEXA Mid Leg Replacement & Potentiometer Coupling Gears
 
 ![Mid Leg Assembly](./images/fusion-screenshots/Hexa_Midleg_V4.png)
 
+The mid-leg assembly houses two potentiometers with independent gearing mechanisms to measure the positions of both the leg actuator, and the toe actuator. 
+The two mechanisms are a mirror image of one-another, making the assembly procedure relatively simple.
+Great care should be taken when assembling this section not to damage the wiring when attaching the Lid as the wiring loom ends up tightly packed through the section where the Lid screw is secured.
+
 ### SBC & ADC Mounting Solution
 
 ![SBC & ADC Mounting Solution](./images/fusion-screenshots/Hexa_Pi4B_Headmount_V3.png)
 
-The mounting solution for the SBC and ADC add-on board is based on a design created and distributed by Thingiverse user "mkellsy" which can be [found here](https://www.thingiverse.com/thing:3793664). 
-This design was then adapted to allow easyy mounting of the proprioception system directly to the HEXA robot in place of the factory head shell. This conveniently also allows the use of the HEXA robot's onboard USB port to power the proprioception system.
+The mounting solution for the SBC and ADC add-on board is based on a design for a Rapsberry Pi case created and distributed by Thingiverse user "mkellsy" which can be [found here](https://www.thingiverse.com/thing:3793664). 
+This design was then adapted to allow easy mounting of the proprioception system directly to the HEXA robot in place of the factory head shell. This conveniently also allows the use of the HEXA robot's onboard USB port to power the proprioception system.
+
+## 3D Printing Considerations
+
+Our prototype parts were printed using a 0.2mm layer height in a combination of PLA and PETG. It was initially assumed that PLA might not be structurally strong enough, however during iteration and printing of parts for test fitting it was fount that PLA was of adequate strength for this use case.
+Support structures will be required to print the Hip, Hip Insert and SBC/ADC Mounting Solution.
+It is important that your printer is calibrated correctly to ensure dimensional accuracy of your parts as the designs supplied here require a 0.1mm dimensional tolerance to ensure they fit together correctly.
+The total print time for a full set of the required parts using an Ender 3 V3 KE printer is 7 hours 14 minutes, as shown in the screenshot from Orca Slicer below.
+
+![Full Print Orca Slicer](./images/orca-full-print.png)
+
+The above Orca Slicer project file can be found [here](./models/orca-full-print.3mf), alongside the individual STL files for each part [here](./models).
+It is recommended you adapt the support structures, quality settings, and part orientation to suit your specific printer, however the above can be used as a reference. 
