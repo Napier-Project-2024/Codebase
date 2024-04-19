@@ -7,7 +7,7 @@
 from fastapi import FastAPI
 from starlette.responses import FileResponse 
 import datetime
-import json
+
 
 # Load from the ADCPi library provided by ABElectronics
 # Try the import
