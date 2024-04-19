@@ -1,13 +1,14 @@
 package APIdemo
 
 import (
-	"encoding/json"
-	"io/ioutil"
+	
 	"mind/core/framework/drivers/hexabody"
 	"mind/core/framework/log"
 	"mind/core/framework/skill"
-	"net/http"
 	"time"
+	"net/http"
+	"io/ioutil"
+	"encoding/json"
 )
 
 type APIdemo struct {
@@ -30,8 +31,10 @@ func (d *APIdemo) OnStart() {
 		return
 	}
 
+	// Create a channel to execute the callAPI function in parallel with the robot movement script
 	stop := make(chan bool)
 
+	// Call the API until the stopo channel is set to true
 	go func() {
 		for {
 			select {
@@ -100,6 +103,8 @@ func (d *APIdemo) OnStart() {
 		time.Sleep(2 * time.Second)
 
 	}
+
+	// Stop calling the API
 	stop <- true
 }
 
