@@ -8,7 +8,7 @@ The Go script itself is found at ```/APIdemo/src/apidemo.go```
 This simple script performs a full range motion on each of the specified leg's joints whilst calling the Hexasense API via HTTP and printing the API response JSON string to the console, a shown in the sample output below.
 ![Sample Console Output](./images/example-console-output.png)
 
-## The callAPI() Function
+## The Example callAPI() Function
 
 This function demonstrates how to call the API from a Go script and store the response in a JSON format.
 The example also prints this response to the console.
