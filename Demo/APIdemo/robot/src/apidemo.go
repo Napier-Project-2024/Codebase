@@ -51,8 +51,8 @@ func (d *APIdemo) OnStart() {
 	hexabody.StandWithHeight(100)
 
 	// Assuming HEXA has 6 legs based on the design - this allows you to run the demo movement on any selection of leg(s)
-	// Order the legs into groups
-	legOrder := [][]int{{}, {3}} // Add the number of the leg you want the motion sequence to run on here
+	// Order the legs into two groups
+	legOrder := [][]int{{}, {3}} // Add the numbers of the legs you want the motion sequence to run on here - example: all legs in two groups of three = legOrder := [][]int{{2, 4, 6}, {1, 3, 5}}
 
 	for _, legs := range legOrder {
 
@@ -148,7 +148,7 @@ func callAPI() {
 	// Close the HTTP response body
 	defer req.Body.Close()
 
-	// Read in the response
+	// Read in the response body
 	body, readErr := ioutil.ReadAll(req.Body)
 
 	// Handle any HTTP response errors
