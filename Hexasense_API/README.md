@@ -113,5 +113,5 @@ The ```convert``` function is then defined, taking two input parameters - an ADC
 This function divides the ADC input voltage by the base voltage to arrive at a value between 0 and 1.
 To prevent divide-by-zero errors, a try/catch is used to account for the situation where the base voltage is read in as zero which may occur if there is a wiring error in the ADC circuit. This exception is handled by simply outputing a zero value in all instances.
 
-The entire ```returnValues``` function then returns the assembles JSON string.
+The entire ```returnValues``` function then returns the assembled JSON string.
 
