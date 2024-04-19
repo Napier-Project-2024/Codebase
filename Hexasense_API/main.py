@@ -38,18 +38,6 @@ async def root():
     # Return the index.html file
     return FileResponse('index.html')
 
-# Define the "test" directory responce of the API
-@app.get("/test")
-async def test():
-    # Assemble and return a timestamp string 
-    def time():
-        now = datetime.datetime.now()    
-        timeString = now.strftime("%Y-%m-%d %H:%M:%S:%f")
-        return timeString
-
-    # Respond to the API call with a timestamp string
-    while True:
-        return time()
     
 # Define the "returnValues" directory response of the API
 @app.get("/returnValues")
