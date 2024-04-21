@@ -1,0 +1,8 @@
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/home/team-member/Codebase/Experiments/fastapi/hexaboot.sh
+
+[Install]
+WantedBy=default.target
