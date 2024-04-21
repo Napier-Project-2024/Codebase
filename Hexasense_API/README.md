@@ -123,7 +123,7 @@ sudo apt update && apt upgrade -y
 
 
 ```
-sudo apt install git python3 python3-installer python3-build python3-fastapi python3-uvicorn -y
+sudo apt install git python3 python3-installer python3-build python3-fastapi python3-uvicorn python3.11-venv -y
 ```
 
 ```
