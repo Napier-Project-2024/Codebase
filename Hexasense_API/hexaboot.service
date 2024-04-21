@@ -2,7 +2,7 @@
 After=network.target
 
 [Service]
-ExecStart=/home/team-member/Codebase/Experiments/fastapi/hexaboot.sh
+ExecStart=/etc/systemd/system/hexaboot.sh
 
 [Install]
 WantedBy=default.target
