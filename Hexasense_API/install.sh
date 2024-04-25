@@ -33,6 +33,9 @@ cd /usr/Hexasense/Hexasense_API
 echo Giving boot script executable permission
 sudo chmod +x hexaboot.sh
 
+echo Giving Uninstall script executable permissions
+sudo chmod +x uninstall.sh
+
 echo Copying hexaboot.sh startup script to systemd directory
 sudo cp hexaboot.sh /etc/systemd/system
 
