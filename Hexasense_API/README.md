@@ -10,6 +10,11 @@ These functions are achieved by using the [ADCPi library](https://github.com/abe
 
 The API is served using the [Uvicorn ASGI web server](https://www.uvicorn.org/) which is configured to run as a daemon upon system boot.
 
+## Installation & Setup
+
+
+
+
 ## The API Script
 
 The required libraries and frameworks are imported.
@@ -115,71 +120,6 @@ To prevent divide-by-zero errors, a try/catch is used to account for the situati
 
 The entire ```returnValues``` function then returns the assembled JSON string.
 
-## Installation
 
-```
-sudo apt update && apt upgrade -y
-```
-
-
-```
-sudo apt install git python3 python3-installer python3-build python3-fastapi python3-uvicorn python3.11-venv -y
-```
-
-```
-cd ~
-```
-
-```
-git clone -b hexasense-v0.1 --single-branch https://github.com/Napier-Project-2024/Codebase.git
-```
-
-```
-cd ~/Codebase/Hexasense_API
-```
-
-```
-git clone https://github.com/abelectronicsuk/ABElectronics_Python_Libraries.git
-```
-
-```
-cd ABElectronics_Python_Libraries
-```
-
-```
-python3 -m build
-```
-
-```
-cd ~/Codebase/Hexasense_API
-```
-
-```
-sudo chmod 777 hexaboot.sh
-```
-
-```
-sudo cp hexaboot.sh /etc/systemd/system
-```
-
-```
-sudo cp hexaboot.service /etc/systemd/system
-```
-
-```
-cd ~
-```
-
-```
-sudo cp -r Hexasense_API /usr
-```
-
-```
-sudo systemctl enable hexaboot
-```
-
-```
-sudo reboot now
-```
 
 

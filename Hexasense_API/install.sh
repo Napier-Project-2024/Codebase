@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo Installing Hexasense API
+
 echo Update and Upgrade packages
 sudo apt update -y && sudo apt upgrade -y
 
@@ -29,7 +31,7 @@ echo Moving to API directory
 cd /usr/Hexasense/Hexasense_API
 
 echo Giving boot script executable permission
-sudo chmod 777 hexaboot.sh
+sudo chmod +x hexaboot.sh
 
 echo Copying hexaboot.sh startup script to systemd directory
 sudo cp hexaboot.sh /etc/systemd/system
