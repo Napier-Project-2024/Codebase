@@ -15,7 +15,7 @@ echo Make home the working directory
 cd ~
 
 echo Cloning Hexasense branch to ~/Hexasense
-git clone -b hexasense-v0.1 --single-branch https://github.com/Napier-Project-2024/Codebase.git /usr/Hexasense
+git clone -b main --single-branch https://github.com/Napier-Project-2024/Codebase.git /usr/Hexasense
 
 echo Change to Codebase dir
 cd /usr/Hexasense
